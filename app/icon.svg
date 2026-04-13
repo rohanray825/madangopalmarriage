@@ -1,0 +1,36 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="40" y1="28" x2="220" y2="228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9AC55" />
+      <stop offset="1" stop-color="#9B5C17" />
+    </linearGradient>
+    <linearGradient id="petal" x1="128" y1="64" x2="128" y2="196" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFF8EE" />
+      <stop offset="1" stop-color="#F5DEB3" />
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="64" fill="#F7F0E4" />
+  <circle cx="128" cy="128" r="92" fill="url(#bg)" />
+  <circle cx="128" cy="128" r="84" stroke="#F7E8C8" stroke-width="4" stroke-opacity="0.65" />
+  <path
+    d="M128 68C117 84 108 99 108 114C108 132 121 143 128 146C135 143 148 132 148 114C148 99 139 84 128 68Z"
+    fill="url(#petal)"
+  />
+  <path
+    d="M128 76C122 87 118 98 118 110C118 123 124 132 128 135C132 132 138 123 138 110C138 98 134 87 128 76Z"
+    fill="#9B5C17"
+  />
+  <path
+    d="M92 132C101 128 111 127 120 131C113 138 107 145 103 154C96 149 92 142 92 132Z"
+    fill="url(#petal)"
+  />
+  <path
+    d="M164 132C155 128 145 127 136 131C143 138 149 145 153 154C160 149 164 142 164 132Z"
+    fill="url(#petal)"
+  />
+  <path
+    d="M104 162C112 152 121 147 128 146C135 147 144 152 152 162C145 171 137 176 128 180C119 176 111 171 104 162Z"
+    fill="#FFF8EE"
+  />
+  <circle cx="128" cy="110" r="10" fill="#D9AC55" />
+</svg>
