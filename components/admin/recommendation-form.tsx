@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useEffect, useMemo, useState, useTransition } from "react";
 import { LoaderCircle, Mail, SendHorizonal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Select } from "@/components/ui/select";
@@ -24,6 +24,25 @@ export function RecommendationForm({
   );
   const [feedback, setFeedback] = useState("");
   const [isPending, startTransition] = useTransition();
+  const availableCandidates = useMemo(
+    () => users.filter((user) => user.id !== recipientUserId),
+    [recipientUserId, users]
+  );
+
+  useEffect(() => {
+    if (availableCandidates.length === 0) {
+      setCandidateUserId("");
+      return;
+    }
+
+    const currentCandidateStillValid = availableCandidates.some(
+      (user) => user.id === candidateUserId
+    );
+
+    if (!currentCandidateStillValid) {
+      setCandidateUserId(availableCandidates[0].id);
+    }
+  }, [availableCandidates, candidateUserId]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -75,13 +94,11 @@ export function RecommendationForm({
         <label className="space-y-2 text-sm">
           <span className="font-semibold">Suggested candidate</span>
           <Select value={candidateUserId} onChange={(event) => setCandidateUserId(event.target.value)}>
-            {users
-              .filter((user) => user.id !== recipientUserId)
-              .map((user) => (
-                <option key={user.id} value={user.id}>
-                  {user.name || user.email}
-                </option>
-              ))}
+            {availableCandidates.map((user) => (
+              <option key={user.id} value={user.id}>
+                {user.name || user.email}
+              </option>
+            ))}
           </Select>
         </label>
       </div>

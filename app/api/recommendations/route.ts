@@ -30,6 +30,13 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Recipient or candidate not found." }, { status: 404 });
     }
 
+    if (recipient.id === candidate.id) {
+      return NextResponse.json(
+        { message: "Recipient and suggested candidate must be different devotees." },
+        { status: 400 }
+      );
+    }
+
     const [recommendation] = await db
       .insert(matchRecommendations)
       .values({
