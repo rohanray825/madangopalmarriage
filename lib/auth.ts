@@ -96,6 +96,16 @@ export async function ensureUserRecord() {
         role: userRole,
         emailVerified,
       })
+      .onConflictDoUpdate({
+        target: users.clerkUserId,
+        set: {
+          email: emailAddress,
+          fullName: [clerkUser.firstName, clerkUser.lastName].filter(Boolean).join(" ") || null,
+          role: userRole,
+          emailVerified,
+          updatedAt: new Date(),
+        },
+      })
       .returning();
 
     if (!clerkUser.publicMetadata?.role) {
