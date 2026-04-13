@@ -71,7 +71,7 @@ const questionnaireObject = z.object({
   familyPhone: phoneSchema,
   city: z.string().trim().min(2, "City is required"),
   state: z.string().trim().min(2, "State is required"),
-  address: z.string().trim().min(10, "Current address is required"),
+  address: z.string().trim().min(3, "Current address is required"),
   counsellor: z.string().trim().min(2, "Counsellor name is required"),
   counsellorPhone: phoneSchema,
   rounds: z.string().trim().min(1, "Rounds are required"),
@@ -79,7 +79,7 @@ const questionnaireObject = z.object({
     .array(z.enum(REGULATIVE_PRINCIPLES.map((item) => item.value) as [string, ...string[]]))
     .min(1, "Select at least one regulative principle"),
   familyMembers: z.string().trim().min(1, "Family members count is required"),
-  homeAddress: z.string().trim().min(10, "Original home address is required"),
+  homeAddress: z.string().trim().min(3, "Original home address is required"),
   homeCategory: homeCategoryEnum,
   father: z.string().trim().min(2, "Father's name is required"),
   mother: z.string().trim().min(2, "Mother's name is required"),

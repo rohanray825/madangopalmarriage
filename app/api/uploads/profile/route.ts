@@ -12,8 +12,8 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Image file is required" }, { status: 400 });
     }
 
-    if (!file.type.startsWith("image/")) {
-      return NextResponse.json({ error: "Only image uploads are allowed" }, { status: 400 });
+    if (!["image/jpeg", "image/png"].includes(file.type)) {
+      return NextResponse.json({ error: "Only JPG and PNG images are allowed" }, { status: 400 });
     }
 
     if (file.size > 5 * 1024 * 1024) {

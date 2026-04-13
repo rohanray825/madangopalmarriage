@@ -26,8 +26,10 @@ export function ProfilePhotoUpload({
   const [error, setError] = useState("");
 
   async function handleSelectFile(file: File) {
-    if (!file.type.startsWith("image/")) {
-      setError("Please choose a valid image file.");
+    const allowedTypes = ["image/jpeg", "image/png"];
+
+    if (!allowedTypes.includes(file.type)) {
+      setError("Please upload a JPG or PNG image only.");
       return;
     }
 
@@ -89,7 +91,7 @@ export function ProfilePhotoUpload({
             <p className="text-lg font-semibold">Profile photograph</p>
             <p className="text-sm text-[var(--muted)]">
               Store the image in Cloudflare R2 and save only the object key and public URL in
-              Neon. JPG/PNG/WebP, maximum 5MB.
+              Neon. JPG/PNG only, maximum 5MB.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -98,7 +100,7 @@ export function ProfilePhotoUpload({
               Upload photo
               <input
                 type="file"
-                accept="image/*"
+                accept=".jpg,.jpeg,.png,image/jpeg,image/png"
                 className="hidden"
                 onChange={(event) => {
                   const file = event.target.files?.[0];
