@@ -10,7 +10,7 @@ const socialPreviewImage =
 
 export const metadata: Metadata = {
   title: "Madangopal Matrimony",
-  description: "A devotional marriage portal for devotees.",
+  description: "A marriage portal for devotees.",
   metadataBase: new URL(appUrl),
   icons: {
     icon: "/icon.svg",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Madangopal Matrimony",
-    description: "A devotional marriage portal for devotees.",
+    description: "A marriage portal for devotees.",
     url: appUrl,
     siteName: "Madangopal Matrimony",
     type: "website",
