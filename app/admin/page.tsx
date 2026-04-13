@@ -10,6 +10,8 @@ import { Input } from "@/components/ui/input";
 import { requireAdminUser } from "@/lib/auth";
 import { getAdminProfiles, getAdminRecommendationFeed } from "@/lib/queries";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminPage({
   searchParams,
 }: {

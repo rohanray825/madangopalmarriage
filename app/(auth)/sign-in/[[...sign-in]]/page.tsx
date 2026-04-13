@@ -7,6 +7,7 @@ export default function SignInPage() {
         path="/sign-in"
         routing="path"
         signUpUrl="/sign-up"
+        fallbackRedirectUrl="/dashboard"
         appearance={{
           elements: {
             card: "shadow-xl border border-[var(--border)]",

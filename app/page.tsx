@@ -15,9 +15,9 @@ const features = [
 
 export default function LandingPage() {
   return (
-    <PageShell className="space-y-20 py-14 md:py-20">
-      <section className="section-pattern glass-panel overflow-hidden rounded-[2rem] px-5 py-10 sm:px-8 md:px-14 md:py-14">
-        <div className="grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr]">
+    <PageShell className="space-y-20 py-10 md:py-16">
+      <section className="section-pattern glass-panel overflow-hidden rounded-[2rem] px-5 py-8 pb-20 sm:px-8 sm:pb-8 md:px-14 md:py-10">
+        <div className="grid items-start gap-10 lg:grid-cols-[1.15fr_0.85fr]">
           <div className="space-y-8">
             <Badge>Devotional. Modern. Carefully guided.</Badge>
             <div className="space-y-4">
@@ -110,8 +110,8 @@ export default function LandingPage() {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 rounded-full bg-white/90 px-4 py-3 shadow-lg sm:-bottom-5 sm:px-5">
-              <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)]">
+            <div className="absolute left-1/2 top-full mt-4 w-[calc(100%-2.5rem)] max-w-[20rem] -translate-x-1/2 rounded-[1.75rem] bg-white/90 px-4 py-3 text-center shadow-lg sm:absolute sm:bottom-0 sm:top-auto sm:mt-0 sm:w-auto sm:max-w-none sm:translate-y-1/2 sm:rounded-full sm:px-5">
+              <span className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-[var(--primary)]">
                 <Sparkles className="h-4 w-4" />
                 Temple-inspired modern interface
               </span>

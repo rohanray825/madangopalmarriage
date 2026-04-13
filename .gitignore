@@ -8,3 +8,5 @@ coverage
 *.log
 *.tsbuildinfo
 sample.txt
+
+.vercel

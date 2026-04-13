@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { clerkClient } from "@clerk/nextjs/server";
 import { and, eq } from "drizzle-orm";
+import { revalidatePath } from "next/cache";
 import { profilePhotos, users } from "@/db/schema";
 import { requireAdminUser } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -43,6 +44,9 @@ export async function DELETE(
     await client.users.deleteUser(target.clerkUserId);
 
     await db.delete(users).where(eq(users.id, target.id));
+
+    revalidatePath("/admin");
+    revalidatePath("/api/admin/export-completed-profiles");
 
     return NextResponse.json({
       message: `${target.email} has been deleted successfully.`,
